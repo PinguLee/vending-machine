@@ -5,12 +5,14 @@ const drawButton = document.getElementById("draw");
 const total = document.getElementById("total");
 const priceText = document.getElementById("price-text");
 const admin = document.getElementById("admin");
-let createItem;
+const addFood = document.getElementById("add-food");
+const addName = document.getElementById("add-name");
+const addPrice = document.getElementById("add-price");
+const add = document.getElementById("add");
+const del = document.getElementById("del");
 let checked = [];
 let sum = 0;
 let temp = [];
-
-let addMenu, addName, addPrice;
 
 item.forEach(function (box) {
   box.addEventListener("click", function (e) {
@@ -38,11 +40,11 @@ drawButton.addEventListener("click", function (e) {
     }
     console.log(`${temp}을(를) 획득`);
 
-    if(sum === priceText.value) {
+    if (sum === priceText.value) {
       console.log("잔돈 : 없음");
       priceText.textContent = "";
       total.textContent = ""
-    } else if(sum < priceText.value) {
+    } else if (sum < priceText.value) {
       console.log(`거스름돈 : ${priceText.value - sum}원`);
     }
   } else {
@@ -54,13 +56,28 @@ drawButton.addEventListener("click", function (e) {
 admin.addEventListener("click", function (e) {
   let password = prompt("관리자 비밀번호");
   if (password === "asd") {
-    
+
   }
 });
 
-function createItemFunc(count) {
-  for(let i = 0; i < count; i++) {
-    createItem = document.createElement("li");
-    choiceBox.appendChild(createItem);
-  }
+add.addEventListener("click", function (e) {
+  console.log("asd");
+  createItemFunc();
+});
+
+function createItemFunc() {
+  let createItem = document.createElement("li .item");
+  let createLabel1 = document.createElement("label");
+  let createLabel2 = document.createElement("label");
+  let createLabel3 = document.createElement("label");
+  choiceBox.appendChild(createItem );
+  createItem.appendChild(createLabel1);
+  createLabel1.textContent = addFood.value
+
+  createItem.appendChild(createLabel2);
+  createLabel2.textContent = addName.value
+
+  createItem.appendChild(createLabel3);
+  createLabel3.textContent = addPrice.value
+
 }
