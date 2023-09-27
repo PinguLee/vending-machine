@@ -1,5 +1,4 @@
 const root = document.getElementById("root");
-const choiceBox = document.getElementById("choice-box")
 const item = document.querySelectorAll(".item");
 const drawButton = document.getElementById("draw");
 const total = document.getElementById("total");
@@ -10,9 +9,44 @@ const addName = document.getElementById("add-name");
 const addPrice = document.getElementById("add-price");
 const add = document.getElementById("add");
 const del = document.getElementById("del");
+const delItem = document.getElementById("del-item")
+let choiceBox = document.getElementById("choice-box");
 let checked = [];
 let sum = 0;
 let temp = [];
+
+function createItemFunc() {
+  let createItem = document.createElement("li");
+  let createLabel1 = document.createElement("label");
+  let createLabel2 = document.createElement("label");
+  let createLabel3 = document.createElement("label");
+  let createLabel4 = document.createElement("label");
+  let countItem = document.getElementById("choice-box").childElementCount;
+
+  choiceBox.appendChild(createItem);
+  createItem.className = "item";
+  createItem.dataset.item = countItem + 1;
+
+  createItem.appendChild(createLabel1);
+  createLabel1.textContent = addFood.value;
+
+
+  createItem.appendChild(createLabel2);
+  createLabel2.textContent = addName.value;
+
+  createItem.appendChild(createLabel3);
+  createLabel3.textContent = addPrice.value;
+
+  createItem.appendChild(createLabel4);
+  createLabel4.textContent = createItem.dataset.item;  
+}
+
+function deleteItemFunc(num) {
+  choiceBox.children[num].remove();
+  for(let i = 0; i < countItem; i++) {
+    choiceBox.children[i+1].children[3].textContent = "1";
+  }
+}
 
 item.forEach(function (box) {
   box.addEventListener("click", function (e) {
@@ -61,23 +95,11 @@ admin.addEventListener("click", function (e) {
 });
 
 add.addEventListener("click", function (e) {
-  console.log("asd");
   createItemFunc();
 });
 
-function createItemFunc() {
-  let createItem = document.createElement("li .item");
-  let createLabel1 = document.createElement("label");
-  let createLabel2 = document.createElement("label");
-  let createLabel3 = document.createElement("label");
-  choiceBox.appendChild(createItem );
-  createItem.appendChild(createLabel1);
-  createLabel1.textContent = addFood.value
+del.addEventListener("click", function (e) {
+  deleteItemFunc(delItem.value);
+})
 
-  createItem.appendChild(createLabel2);
-  createLabel2.textContent = addName.value
 
-  createItem.appendChild(createLabel3);
-  createLabel3.textContent = addPrice.value
-
-}
