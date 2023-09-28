@@ -1,74 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style: none;
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./css/main.css" rel="stylesheet" type="text/css" />
-  <script src="./js/main.js" defer></script>
-  <title>자판기</title>
-</head>
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+#choice-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60vw;
+  height: 70vh;
+  overflow: auto;
+  padding-right: 1vw;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20vw;
+  height: 15vh;
+  border: none;
+  border-radius: 20px;
+  margin: 10px;
+  color: gray;
+  box-shadow: 1px 1px 5px;
+  font-size: 10px;
 
-<body>
+}
+.item > label:nth-child(1) {
+  font-size: 60px;
+  font-weight: bold;
+}
+.item > label:nth-child(2) {
+  font-size: 15px;
+  font-weight: bold;
+}
+.item > label:nth-child(3) {
+  font-size: 12px;
+}
+.item > label:nth-child(4) {
+  font-size: 12px;
+}
+#process-box {
 
-  <div id="root">
-    <ul id="choice-box">
-      <li class="item" data-item="1">
-        <label>🍗</label>
-        <label>치킨</label>
-        <label>10000원</label>
-        <label>1</label>
-      </li>
-      <li class="item" data-item="2">
-        <label>🍕</label>
-        <label>피자</label>
-        <label>8000원</label>
-        <label>2</label>
-      </li>
-      <li class="item" data-item="3">
-        <label>🥪</label>
-        <label>샌드위치</label>
-        <label>4000원</label>
-        <label>3</label>
-      </li>
-      <li class="item" data-item="4">
-        <label>🍣</label>
-        <label>초밥</label>
-        <label>2000원</label>
-        <label>4</label>
-      </li>
-      <li class="item" data-item="5">
-        <label>🍔</label>
-        <label>햄버거</label>
-        <label>5000원</label>
-        <label>5</label>
-      </li>
-    </ul>
-    <div>
-      <div id="payment-box">
-        <label for="price-text">음식<br>자판기</label>
-        <input type="text" id="price-text" placeholder="금액을 입력해주세요.">
-        <label id="total">계산할 금액 : </label>
-        <input type="submit" id="draw" value="뽑기">
-        <input type="button" id="admin" value="관리자">
-      </div>
-      <div id="admin-box">
-        <div class="admin-text">
-          <label for="add-food">음식</label>
-          <input type="text" id="add-food">
-          <label for="add-name">이름</label>
-          <input type="text" id="add-name">
-          <label for="add-price">가격</label>
-          <input type="text" id="add-price">
-        </div>
-        <div class="admin-button">
-          <input type="button" id="add" value="추가">
-          <input type="button" id="del" value="삭제">
-        </div>
-
-      </div>
-    </div>
-  </div>
-</body>
-
-</html>
+}
+#payment-box {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  padding-left: 1vw;
+}
+#admin-box {
+  display: none;
+  flex-direction: column;
+  width: 20vw;
+  padding-left: 1vw;
+}
