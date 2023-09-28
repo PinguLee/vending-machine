@@ -54,6 +54,12 @@ function deleteItemFunc(num) {
   }
 }
 
+/* 계획
+forEach 제거 후
+동적으로 생성된 객체에 이벤트 바인딩
+lastElementChild
+target.parentElement
+*/
 item.forEach(function (box) {
   box.addEventListener("click", function (e) {
     
