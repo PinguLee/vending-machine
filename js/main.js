@@ -60,9 +60,10 @@ forEach 제거 후
 lastElementChild
 target.parentElement
 */
+
 item.forEach(function (box) {
   box.addEventListener("click", function (e) {
-    
+
     if (checked[box.children[3].textContent - 1] !== 1) {
       checked[box.children[3].textContent - 1] = 1;
       box.style.backgroundColor = "pink";
@@ -94,9 +95,9 @@ drawButton.addEventListener("click", function (e) {
       console.log(`거스름돈 : ${priceText.value - sum}원`);
     }
   } else {
-    if (sum !== 0) {
+    if (price !== "" && sum > 0) {
       console.log(`금액 부족 : ${sum - priceText.value}원`);
-    } 
+    }
   }
 
   temp = "";
@@ -104,8 +105,8 @@ drawButton.addEventListener("click", function (e) {
 
 admin.addEventListener("click", function (e) {
   let password = prompt("관리자 비밀번호");
-  if (password === "asd") {
-    adminBox.style.cssText = `display: flex; `;
+  if (password === "1234") {
+    adminBox.style.cssText = `visibility: visible`;
   }
 });
 
