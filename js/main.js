@@ -13,6 +13,12 @@ const add = document.getElementById("add");
 const del = document.getElementById("del");
 const delItem = document.getElementById("del-item")
 
+// test
+ const check = (event) => {
+    event.target.parentElement.id;
+}
+console.log(check);
+
 let liArr = choiceBox.getElementsByTagName("li");
 let checked = [];
 let sum = 0;
@@ -59,11 +65,10 @@ forEach 제거 후
 동적으로 생성된 객체에 이벤트 바인딩
 lastElementChild
 target.parentElement
-*/
+*/  
 
 item.forEach(function (box) {
   box.addEventListener("click", function (e) {
-
     if (checked[box.children[3].textContent - 1] !== 1) {
       checked[box.children[3].textContent - 1] = 1;
       box.style.backgroundColor = "pink";
