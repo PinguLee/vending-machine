@@ -13,16 +13,12 @@ const add = document.getElementById("add");
 const del = document.getElementById("del");
 const delItem = document.getElementById("del-item")
 
-// test
- const check = (event) => {
-    event.target.parentElement.id;
-}
-console.log(check);
 
 let liArr = choiceBox.getElementsByTagName("li");
 let checked = [];
 let sum = 0;
 let temp = [];
+
 
 
 function createItemFunc(foodA, nameA, priceA) {
@@ -65,7 +61,11 @@ forEach 제거 후
 동적으로 생성된 객체에 이벤트 바인딩
 lastElementChild
 target.parentElement
-*/  
+*/
+
+function clicked(event){
+  alert(event.currentTarget.getAttribute('id')+" clicked");
+}
 
 item.forEach(function (box) {
   box.addEventListener("click", function (e) {
@@ -92,6 +92,7 @@ drawButton.addEventListener("click", function (e) {
       }
     }
     console.log(`${temp} 획득`);
+    
     if (sum === priceText.value) {
       console.log("잔돈 : 없음");
       priceText.textContent = "";
